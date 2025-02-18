@@ -40,9 +40,9 @@ export function TodosTable({ todos }: { todos: ITodo[] }) {
             </TableCell>
             <TableCell>
               {todo.completed ? (
-                <Badge>"Completed" </Badge>
+                <Badge>&quot;Completed&quot;</Badge>
               ) : (
-                <Badge variant={"secondary"}>"Uncompleted" </Badge>
+<Badge variant={"secondary"}>&quot;Uncompleted&quot;</Badge>
               )}
             </TableCell>
             <TableCell >

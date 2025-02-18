@@ -29,6 +29,7 @@ import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import { ITodo } from "@/interfaces";
 import { Checkbox } from "./ui/checkbox";
+import Image from "next/image";
 
 type TodoFormProps = {
   userId?: string | null
@@ -148,11 +149,7 @@ const TodoForm = ({ type = "add", data, userId }: TodoFormProps) => {
                 <FormLabel>Image (Optional)</FormLabel>
                 <div className="flex flex-col justify-center items-center gap-4">
                   {preview && (
-                    <img
-                      src={preview}
-                      alt="Preview"
-                      className="h-32 w-32 object-cover rounded-md border-border border-2 border-dashed "
-                    />
+                    <Image  className="h-32 w-32 object-cover rounded-md border-border border-2 border-dashed " src={preview} alt="Preview" width={100} height={100} />
                   )}
                   <Input
                     type="file"

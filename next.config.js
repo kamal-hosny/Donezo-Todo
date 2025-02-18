@@ -5,6 +5,15 @@ const nextConfig = {
       enabled: true
     }
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
