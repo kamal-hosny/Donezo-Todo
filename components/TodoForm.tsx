@@ -26,13 +26,13 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "./ui/button";
 
-import { Textarea } from "./ui/textarea";
 import { ITodo } from "@/interfaces";
-import { Checkbox } from "./ui/checkbox";
 import Image from "next/image";
+import { Checkbox } from "./ui/checkbox";
+import { Textarea } from "./ui/textarea";
 
 type TodoFormProps = {
-  userId?: string | null
+  userId?: string | null;
   data?: ITodo;
   type?: "add" | "edit";
 };
@@ -96,7 +96,7 @@ const TodoForm = ({ type = "add", data, userId }: TodoFormProps) => {
           body: values.body,
           image: values.image,
           completed: values.completed,
-          user_id: userId as string
+          user_id: userId as string,
         });
       } else if (data?.id) {
         await updateTodoAction({
@@ -125,7 +125,7 @@ const TodoForm = ({ type = "add", data, userId }: TodoFormProps) => {
           </Button>
         ) : (
           <Button size="icon" variant="secondary">
-<Pen size={16} />
+            <Pen size={16} />
           </Button>
         )}
       </DialogTrigger>
@@ -149,7 +149,13 @@ const TodoForm = ({ type = "add", data, userId }: TodoFormProps) => {
                 <FormLabel>Image (Optional)</FormLabel>
                 <div className="flex flex-col justify-center items-center gap-4">
                   {preview && (
-                    <Image  className="h-32 w-32 object-cover rounded-md border-border border-2 border-dashed " src={preview} alt="Preview" width={100} height={100} />
+                    <Image
+                      className="h-32 w-32 object-cover rounded-md border-border border-2 border-dashed "
+                      src={preview}
+                      alt="Preview"
+                      width={100}
+                      height={100}
+                    />
                   )}
                   <Input
                     type="file"

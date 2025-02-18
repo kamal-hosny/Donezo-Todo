@@ -13,8 +13,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import TodosTableActions from "./TodosTableActions";
 export function TodosTable({ todos }: { todos: ITodo[] }) {
-
-
   return (
     <Table>
       <TableCaption>A list of your todos.</TableCaption>
@@ -34,7 +32,9 @@ export function TodosTable({ todos }: { todos: ITodo[] }) {
             <TableCell>{todo?.title}</TableCell>
             <TableCell>
               <Avatar>
-                <AvatarImage src={todo?.image ?? "https://dummyimage.com/200x200"} />
+                <AvatarImage
+                  src={todo?.image ?? "https://dummyimage.com/200x200"}
+                />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </TableCell>
@@ -42,19 +42,22 @@ export function TodosTable({ todos }: { todos: ITodo[] }) {
               {todo.completed ? (
                 <Badge>&quot;Completed&quot;</Badge>
               ) : (
-<Badge variant={"secondary"}>&quot;Uncompleted&quot;</Badge>
+                <Badge variant={"secondary"}>&quot;Uncompleted&quot;</Badge>
               )}
             </TableCell>
-            <TableCell >
-             <TodosTableActions data={todo} /> 
+
+            <TableCell>
+              <TodosTableActions data={todo} />
             </TableCell>
           </TableRow>
         ))}
       </TableBody>
       <TableFooter>
-        <TableRow >
+        <TableRow>
           <TableCell colSpan={4}>Total</TableCell>
-          <TableCell className="text-right">{!todos?.length ? "0" : todos?.length}</TableCell>
+          <TableCell className="text-right">
+            {!todos?.length ? "0" : todos?.length}
+          </TableCell>
         </TableRow>
       </TableFooter>
     </Table>
